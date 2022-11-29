@@ -8,7 +8,7 @@ steps:
       - --destination=asia-northeast1-docker.pkg.dev/bookish-telegram/registry/example:latest
       - --destination=asia-northeast1-docker.pkg.dev/bookish-telegram/registry/example:$COMMIT_SHA
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
     id: deploy
     waitFor: ['docker']
     entrypoint: gcloud
