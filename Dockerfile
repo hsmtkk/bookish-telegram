@@ -14,5 +14,5 @@ RUN cargo build --release
 
 FROM gcr.io/distroless/static-debian11 AS runtime
 WORKDIR /app
-COPY --from=builder /app/target/release/app /usr/local/bin
+COPY --from=builder /app/target/release/bookish-telegram /usr/local/bin/app
 ENTRYPOINT ["/usr/local/bin/app"]
