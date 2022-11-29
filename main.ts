@@ -23,6 +23,7 @@ class MyStack extends TerraformStack {
     });
 
     const example_service = new google.cloudRunService.CloudRunService(this, 'cloud_run_service', {
+      autogenerateRevisionName: true,
       location: region,
       metadata: {
         annotations: {
