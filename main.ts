@@ -25,12 +25,6 @@ class MyStack extends TerraformStack {
     const example_service = new google.cloudRunService.CloudRunService(this, 'cloud_run_service', {
       autogenerateRevisionName: true,
       location: region,
-      metadata: {
-        annotations: {
-          "autoscaling.knative.dev/minScale": "0",
-          "autoscaling.knative.dev/maxScale": "1",
-        },
-      },
       name: 'example',
       template: {
         spec: {

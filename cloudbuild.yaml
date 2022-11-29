@@ -18,5 +18,9 @@ steps:
       - example
       - --image
       - asia-northeast1-docker.pkg.dev/bookish-telegram/registry/example:$COMMIT_SHA
+      - --min-instances
+      - "0"
+      - --max-instances
+      - "1"
       - --region
       - asia-northeast1
