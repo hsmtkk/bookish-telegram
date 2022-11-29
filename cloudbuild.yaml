@@ -15,3 +15,16 @@ steps:
       - --cache-ttl=168h
       - --destination=asia-northeast1-docker.pkg.dev/bookish-telegram/registry/example:latest
       - --destination=asia-northeast1-docker.pkg.dev/bookish-telegram/registry/example:$COMMIT_SHA
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: deploy
+    waitFor: ['docker']
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - example
+      - --image
+      - asia-northeast1-docker.pkg.dev/bookish-telegram/registry/example:$COMMIT_SHA
+      - --region
+      - asia-northeast1
